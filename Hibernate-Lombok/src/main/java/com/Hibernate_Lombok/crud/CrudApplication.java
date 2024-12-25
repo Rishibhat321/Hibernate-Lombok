@@ -32,8 +32,52 @@ public class CrudApplication {
 
 		//	CreateMultiple(employeeDAO);
 
-			readEmployee(employeeDAO);
+		//	readEmployee(employeeDAO);
+
+		//	UpdateEmpObject(employeeDAO);
+
+		//	DeleteEmp(employeeDAO);
+
 		};
+	}
+
+	private void DeleteEmp(EmployeeDAO employeeDAO) {
+		// int theId = 5;
+
+		int theId = 7;
+
+		employee tempEmployee = employeeDAO.getEmployeeId(theId);
+
+		System.out.println("Deleting employee: " + tempEmployee);
+		employeeDAO.deleteEmployee(theId);
+
+		System.out.println("Employee deleted");
+	}
+
+	private void UpdateEmpObject(EmployeeDAO employeeDAO) {
+
+		// retrieving the employee object based on EmployeeId.
+         int theId = 4;
+		 employee tempEmployee = employeeDAO.getEmployeeId(theId);
+
+		 // updating the employee details;
+		tempEmployee.setFirstName("Simi");
+		tempEmployee.setLastName("Verma");
+		tempEmployee.setGender("female");
+		tempEmployee.setEmail("simi@gmail.com");
+
+		 employeeDAO.updateEmployee(tempEmployee);
+
+		System.out.println("Updating the employee");
+
+		System.out.println("Updated employee details are : ");
+		System.out.println("Id: " + tempEmployee.getEmpId());
+		System.out.println("Name: " + tempEmployee.getFirstName() + " " + tempEmployee.getLastName());
+		System.out.println("Email is: " + tempEmployee.getEmail());
+		System.out.println("Gender is: " + tempEmployee.getGender());
+		System.out.println("Mobile number is: " + tempEmployee.getMobile());
+
+
 	}
 
 	private void readEmployee(EmployeeDAO employeeDAO) {
@@ -88,7 +132,6 @@ public class CrudApplication {
 		employeeDAO.createEmployee(tempEmployee);
 
 	}
-
 	
 
 }
